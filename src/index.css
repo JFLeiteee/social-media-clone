@@ -33,6 +33,7 @@ body {
   padding: 3rem 1rem;
   text-decoration: none;
   color: #000;
+  z-index: -1;
 }
 
 .profile:hover {
@@ -40,7 +41,7 @@ body {
   cursor: pointer;
 }
 
-.profile-picture {
+.account-picture {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -92,4 +93,32 @@ body {
 
 .icon {
   max-width: 1.5rem;
+}
+
+/* PROFILE SECTION */
+.profile-picture {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+}
+
+.profile-username {
+  font-size: 1.5rem;
+}
+
+.status {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  position: absolute;
+  top: 1rem;
 }

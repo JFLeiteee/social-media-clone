@@ -1,26 +1,22 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import homeIcon from '../assets/home-icon.svg'
 import configIcon from '../assets/config-icon.svg'
+import data from '../data';
 
-export default function LeftBar() {
-    let username = "jf.leiteee";
-    let account = [
-        { id:1, name: "ze"},
-        { id:2, name: "leitee"},
-        { id:3, name: "zezinho"},
-    ]
+export default function LeftBar(props) {
 
     return (
         <>
             <div className="left-bar">
-                <select name="profile-selection" id="profile-selection">
-                    { account.map(({name}) => (<option value="name">{name}</option>)) }
+                <select name="profile-selection" id="profile-selection" onChange={props.handleChange}>
+                    { props.accounts.map(({username, id}) => (<option value={id} key={id}>{username}</option>)) }
                     <option value="addAccount">+ add account</option>
                 </select>
 
                 <Link to="/profile" className='profile'>
-                    <div className='profile-picture'></div>
-                    <p className="username">{username}</p>
+                    <img src={props.accounts[props.currentAccount - 1].profilePicture} alt="profile-picture" className='account-picture'/>
+                    <p className="username">{props.accounts[props.currentAccount - 1].username}</p>
                 </Link>
 
                 <div className="pages">
