@@ -6,6 +6,7 @@ import './index.css'
 import Home from './routes/Home.jsx'
 import Profile from './routes/Profile.jsx'
 import Config from './routes/Config.jsx'
+import ErrorPage from './routes/ErrorPage.jsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -25,7 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/config",
         element: <Config />
-      }
+      },
+      {
+        path: "/profile/:id",
+        element: <Profile />
+      },
     ]
   }
 ])

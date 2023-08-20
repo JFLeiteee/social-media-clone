@@ -1,3 +1,4 @@
+/* GERAL MODIFICATION */
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -11,10 +12,19 @@ body {
   display: flex;
 }
 
-.outlet {
-  padding: 2rem 25rem;
+.line {
+  min-width: 100%;
+  height: 1px;
+  border: none;
+  background-color: #d4d4d4;
 }
 
+/* CHILDREN PAGES CONFIGURATION */
+.outlet {
+  padding: 2rem 0 0 25rem;
+}
+
+/* SIDEBAR */
 .left-bar {
   width: 15rem;
   height: 100%;
@@ -96,6 +106,9 @@ body {
 }
 
 /* PROFILE SECTION */
+.profile-page {
+  min-width: 57rem;
+}
 .profile-picture {
   width: 10rem;
   height: 10rem;
@@ -111,7 +124,7 @@ body {
 }
 
 .profile-username {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .status {
@@ -125,19 +138,57 @@ body {
   transition: all 500ms ease-out;
 }
 
-/* .status:hover {
-  top: 1rem;
-  left: -4rem;
-  transition: all 750ms ;
+.profile-stats {
+  color: #4d4d4d;
 }
 
-.status:hover::after {
-  content: "online";
-  position: absolute;
-  padding-left: 1rem;
-  left: 1.5rem;
-  width: 4rem;
-  height: 1.5rem;
-  border-radius: 0 6px 6px 0;
-  background-color: #fff;
-} */
+.friends-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-card {
+  max-width: 57rem;
+  height: 8rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  text-decoration: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding-right: 5rem;
+}
+
+.friend-name {
+  color: #000;
+}
+
+.friend-profilePicture {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.friend-option {
+  margin-left: auto;
+  color: #000;
+  cursor: pointer;
+}
+
+/* PAGE NOT FOUND */
+.error-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  line-height: .5rem;
+  height: 39.8rem;
+}
+
+.error-page h1 {
+  font-size: 3rem;
+}
+
+.error-page h3 {
+  color: #4d4d4d;
+}
