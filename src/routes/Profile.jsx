@@ -3,6 +3,7 @@ import { useState } from "react";
 import data from "../data"
 import { Link, useOutletContext } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import heartIcon from "../assets/heart-icon.svg"
 
 export default function Profile() {
 
@@ -61,32 +62,55 @@ export default function Profile() {
                 <img src={accounts[id].profilePicture} alt="profile picture" className="profile-picture"/>
                 
                 <div className="left-side">    
-                    <p className="profile-username"><b>{accounts[id].name}</b></p>
+                    <p className="profile-name"><b>{accounts[id].name}</b> </p>
+                    <p className="profile-username"><b>@{accounts[id].username}</b></p>
                     <div className="profile-numbers">
-                        <p className="profile-stats"><b>3 posts</b> ● <b>{accounts[id].friends.length} friends</b></p>
+                        <p className="profile-stats"><b>{accounts[id].posts.length} posts</b> ● <b>{accounts[id].friends.length} friends</b></p>
                     </div>
                 </div>
-            </div>  
-            <hr className="line"/>
-            <h2>Friends</h2>
-            <div className="friends-list">
-                {
-                    accounts[id].friends.map(({id, name}) => 
-                        <div className="friend-card" key={id}>
-                            <Link to={`/profile/${id - 1}`} style={{display:"flex", gap:"1rem", textDecoration: "none", alignItems: "center"}}>
-                                <img className="friend-profilePicture" src={accounts[id - 1].profilePicture} alt="friend" />
-                                <p className="friend-name">
-                                    {
-                                        id == currentAccount 
-                                        ? <b>me</b>
-                                        : <b>{name}</b>
-                                    }
-                                </p>
-                            </Link>
-                        </div>
-                    )
-                }
-            </div>
+            </div> 
+
+            <div className="profile-content">
+                <hr className="line"/>
+                <h2>Posts</h2>
+                <div className="posts-list">
+                    {
+                        accounts[id].posts.map(({text, likes, id, authorId}) => 
+                            <div className="post" key={id}>
+                                <div className="post-detail">
+                                    <img className="post-image" src={accounts[authorId - 1].profilePicture} alt="imagem" />  
+                                    <p className="post-author"><b>{accounts[authorId - 1].username}</b></p>
+                                </div>
+                                <p className="post-text">{text}</p>
+                                <div className="post-feedback">
+                                    <img className="post-like-icon" src={heartIcon} alt="heart icon" />
+                                    <p className="post-likes">{likes}</p>
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
+                <hr className="line"/>
+                <h2>Friends</h2>
+                <div className="friends-list">
+                    {
+                        accounts[id].friends.map(({id, name}) => 
+                            <div className="friend-card" key={id}>
+                                <Link to={`/profile/${id - 1}`} style={{display:"flex", gap:"1rem", textDecoration: "none", alignItems: "center"}}>
+                                    <img className="friend-profilePicture" src={accounts[id - 1].profilePicture} alt="friend" />
+                                    <p className="friend-name">
+                                        {
+                                            id == currentAccount 
+                                            ? <b>me</b>
+                                            : <b>{name}</b>
+                                        }
+                                    </p>
+                                </Link>
+                            </div>
+                        )
+                    }
+                </div>
+            </div> 
         </div>
     )
 }

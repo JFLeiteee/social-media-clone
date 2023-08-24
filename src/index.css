@@ -107,7 +107,7 @@ body {
 
 /* PROFILE SECTION */
 .profile-page {
-  min-width: 57rem;
+  min-width: 55rem;
 }
 .profile-picture {
   width: 10rem;
@@ -123,8 +123,18 @@ body {
   position: relative;
 }
 
-.profile-username {
+.profile-content {
+  max-width: 55rem;
+}
+
+.profile-name {
   font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.profile-username {
+  font-size: 1.2rem;
+  margin-top: 0;
 }
 
 .status {
@@ -140,6 +150,34 @@ body {
 
 .profile-stats {
   color: #4d4d4d;
+}
+
+.posts-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.post-detail, .post-feedback {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-image {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.post-like-icon {
+  cursor: pointer;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.post-like-icon:hover {
+  opacity: 0.6;
 }
 
 .friends-list {
