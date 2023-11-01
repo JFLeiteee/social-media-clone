@@ -27,6 +27,7 @@ export default function Profile() {
     const styles = {
         backgroundColor: accounts[id].online == true ? "#57bf47" : "#c24652",
         left: isHover ? "-3.5rem" : "0",
+        zIndex: 99
     }
 
     // Style of the hover effect upon the status
@@ -41,6 +42,7 @@ export default function Profile() {
         paddingRight: "0.5rem",
         borderRadius: "0 10px 10px 0",
         backgroundColor: "#fff",
+        zIndex: 99,
     }
 
     function friendOption() {
